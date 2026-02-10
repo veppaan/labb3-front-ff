@@ -3,3 +3,40 @@
   line-height: 1.5;
   font-weight: 400;
 }
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+input{
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 1em;
+}
+@media screen and (min-width: 700px){
+  input{
+    width: 400px;
+  }
+  main{
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 699px){
+  input{
+    width: 90%;
+  }
+}
+h1{
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+footer{
+  display: flex;
+  justify-content: center;
+}
