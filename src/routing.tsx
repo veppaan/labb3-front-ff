@@ -3,6 +3,7 @@ import StartPage from "./pages/StartPage";
 import ProductsPage from "./pages/ProductsPage";
 import Layout from "./components/Layout";
 import LoginPage from "./pages/LoginPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
     {
@@ -15,7 +16,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/products",
-                element: <ProductsPage />
+                element: (
+                    <ProtectedRoute>
+                        <ProductsPage />
+                    </ProtectedRoute>
+                ) 
             },
             {
                 path: "/login",
