@@ -14,14 +14,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
     const login = async (credentials: LoginCredentials) => {
 
         try {
-            const res = await fetch("http://localhost:5001/admins", {
+            const res = await fetch("http://localhost:5001/admins/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(credentials)
             })
-            if(!res.ok) throw new Error("Inloggnignen misslyckades");
+            if(!res.ok) throw new Error("Inloggningen misslyckades");
 
             const data = await res.json() as AuthResponse;
 

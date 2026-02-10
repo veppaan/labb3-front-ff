@@ -1,13 +1,26 @@
 import { useState } from "react"
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
+    const {login} = useAuth();
+    const navigate = useNavigate();
+
     const handleClick = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setError('');
+
+        try {
+            await login({username, password});
+            navigate("/products");
+            
+        } catch (error) {
+            setError("Inlogging misslyckad, kontrollera inloggningsuppgifter och försök igen.")
+        }
     }
 
   return (
@@ -15,7 +28,7 @@ const LoginPage = () => {
         <h1>Logga in</h1>
         <form onSubmit={handleClick}>
             {error && (
-                <p>{error}</p>
+                <p className="errorMsg">{error}</p>
             )}
             <label htmlFor="username">Användarnamn</label>
             <input 
@@ -28,7 +41,7 @@ const LoginPage = () => {
             />
             <label htmlFor="password">Lösenord</label>
             <input 
-            type="text" 
+            type="password" 
             id="password" 
             name="password" 
             placeholder="Skriv ditt lösenord..." 
