@@ -1,0 +1,27 @@
+li{
+    list-style-type: none;
+}
+header{
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+ul{
+    display: flex;
+    justify-content: right;
+    gap: 2%;
+    margin-right: 2em;
+}
+a{
+    text-decoration: none;
+    color: darkblue;
+    padding: 10px;
+    border-radius: 8px;
+}
+a:hover:not(.active){
+    color: rgba(0, 0, 139, 0.763);
+}
+.active{
+    background-color: darkblue;
+    color: white;
+}
