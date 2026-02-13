@@ -4,6 +4,15 @@ export interface Admin {
     firstname: string
 }
 
+export interface Product {
+    id: string,
+    name: string,
+    description: string,
+    articleNumber: number,
+    price: number,
+    stock: number
+}
+
 export interface LoginCredentials {
     username: string,
     password: string

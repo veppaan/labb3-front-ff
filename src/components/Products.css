@@ -1,0 +1,27 @@
+@media screen and (min-width: 700px){
+    article{
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        margin-bottom: 1em;
+        padding: 1em;
+    }
+    article p, article h3{
+        max-width: 65ch;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 699px){
+    article{
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        margin-bottom: 0.5em;
+    }
+    article p, article h3{
+        max-width: 35ch;
+        text-align: left;
+    }
+    .oneProduct{
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}

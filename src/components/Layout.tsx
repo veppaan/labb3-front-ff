@@ -9,7 +9,7 @@ const Layout = () => {
             <Outlet />
         </main>
         <footer>
-            <p>Test-footer</p>
+            <p>Labb 3 - Fördjupad frontend</p>
         </footer>
     </>
   )
