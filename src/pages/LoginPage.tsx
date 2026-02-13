@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
@@ -7,8 +7,15 @@ const LoginPage = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-    const {login} = useAuth();
+    const {login, admin} = useAuth();
     const navigate = useNavigate();
+
+    //Control if login user
+    useEffect(() => {
+        if(admin){
+            navigate("/products");
+        }
+    }, [admin])
 
     const handleClick = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();

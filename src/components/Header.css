@@ -11,6 +11,7 @@ ul{
     justify-content: right;
     gap: 2%;
     margin-right: 2em;
+    align-items: center;
 }
 a{
     text-decoration: none;
@@ -20,8 +21,22 @@ a{
 }
 a:hover:not(.active){
     color: rgba(0, 0, 139, 0.763);
+    transition: 0.3s;
 }
 .active{
     background-color: darkblue;
     color: white;
+}
+button{
+    border: 1px solid darkblue;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: white;
+    color: darkblue;
+}
+button:hover{
+    cursor: pointer;
+    background-color: darkblue;
+    color: white;
+    transition: 0.3s;
 }
