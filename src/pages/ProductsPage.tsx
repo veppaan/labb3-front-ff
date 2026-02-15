@@ -9,6 +9,7 @@ const Products = () => {
   const [products, setProducts] = useState<Product[]> ([]);
   //const [stockById, setStockById] = useState({});
 
+  //Hämta produkter
   const getProducts = async () => {
     const token = localStorage.getItem("token");
 
@@ -32,6 +33,8 @@ const Products = () => {
         throw error;
     }
 }
+
+//Uppdatera produkt
 const updateStock = async (id: string, updatedStock: number) => {
 
   const newStock = {
@@ -58,6 +61,33 @@ const updateStock = async (id: string, updatedStock: number) => {
   }
 }
 
+//Raderar produkt
+const deleteProduct = async (id: string, name: string) => {
+
+//Dubbelkollar om radering skulle ske
+const ask = confirm("Vill du verkligen radera " + name + "?")
+if(!ask){
+  return
+} else{
+  const token = localStorage.getItem('token');
+  try {
+      
+  const resp = await fetch(`http://localhost:5001/items/${id}`, {
+      method: "DELETE",
+      headers: {
+          "content-type": "application/json",
+          "Authorization": `Bearer ` + token
+      }
+  })
+  if(resp.ok) {
+      getProducts();
+  }
+  } catch (error) {
+      console.log("Error deleting item: " + error)
+  }
+}
+}
+
 useEffect(() => {
   getProducts();
 }, []);
@@ -76,6 +106,7 @@ useEffect(() => {
               <p>Lagersaldo: {product.stock}</p> 
                {/* <input type="number" value={stockById[product._id] || 0} onChange={(e) => setStockById({[product._id] : Number(e.target.value)})} /> <button onClick={() => updateStock(product._id, product.stock)}>Uppdatera saldo</button> */}
               <p>{product.price}kr</p>
+              <button style={{backgroundColor: "red", border: "1px solid red", color: "white", marginBottom: "1em", marginTop: "0.5em"}} onClick={() => deleteProduct(product._id, product.name)}>Radera produkt</button>
             </div>
           </article>
         ))}
