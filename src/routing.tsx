@@ -4,6 +4,7 @@ import ProductsPage from "./pages/ProductsPage";
 import Layout from "./components/Layout";
 import LoginPage from "./pages/LoginPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AddPage from "./pages/AddPage";
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,14 @@ const router = createBrowserRouter([
                 element: (
                     <ProtectedRoute>
                         <ProductsPage />
+                    </ProtectedRoute>
+                ) 
+            },
+            {
+                path: "/add",
+                element: (
+                    <ProtectedRoute>
+                        <AddPage />
                     </ProtectedRoute>
                 ) 
             },

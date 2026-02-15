@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import "../components/Products.css"
 import type { Product } from "../types/auth.types";
+import { useNavigate } from "react-router-dom";
 
 const Products = () => {
+  const navigate = useNavigate();
 
   const [products, setProducts] = useState<Product[]> ([]);
   //const [stockById, setStockById] = useState({});
@@ -63,7 +65,7 @@ useEffect(() => {
   return (
     <div>
         <h1>Produkter</h1>
-        <button>Lägg till produkt</button> <br />
+        <button onClick={() => navigate("/add")}>Lägg till produkt</button> <br />
         <br />
         {products.map((product) => (
           <article key={product._id} className="allProducts">

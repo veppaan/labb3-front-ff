@@ -13,6 +13,14 @@ export interface Product {
     stock: number
 }
 
+export interface NewProduct {
+    name: string,
+    description: string,
+    articleNumber: number,
+    price: number,
+    stock: number
+}
+
 export interface LoginCredentials {
     username: string,
     password: string
