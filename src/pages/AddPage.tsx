@@ -12,6 +12,12 @@ const AddPage = () => {
     const [stock, setStock] = useState(0);
     const [price, setPrice] = useState(0);
     const [error, setError] = useState('');
+
+    const [nameError, setNameError] = useState('');
+    const [desError, setDesError] = useState('');
+    const [articleError, setArticleError] = useState('');
+    const [stockError, setStockError] = useState('');
+    const [priceError, setPriceError] = useState('');
     
     
     const handleClick = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -50,6 +56,11 @@ const AddPage = () => {
             }
             if(!res.ok){
                 const data = await res.json();
+                setNameError(data.errors.name);
+                setDesError(data.errors.description);
+                setArticleError(data.errors.articleNumber);
+                setStockError(data.errors.stock);
+                setPriceError(data.errors.price);
                 console.log(data.errors);
             }
         } catch (error) {
@@ -72,6 +83,9 @@ const AddPage = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             />
+            {nameError && (
+                <p className="errorMsg">{nameError}</p>
+            )}
             <label htmlFor="description">Beskrivning</label>
             <textarea 
             rows={5} 
@@ -81,6 +95,9 @@ const AddPage = () => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             />
+            {desError && (
+                <p className="errorMsg">{desError}</p>
+            )}
             <label htmlFor="article-number">Artikelnummer</label>
             <input 
             type="number" 
@@ -89,6 +106,9 @@ const AddPage = () => {
             value={articleNumber}
             onChange={(e) => setArticleNumber(Number(e.target.value))}
             />
+            {articleError && (
+                <p className="errorMsg">{articleError}</p>
+            )}
             <label htmlFor="stock">Lagersaldo</label>
             <input 
             type="number" 
@@ -97,6 +117,9 @@ const AddPage = () => {
             value={stock}
             onChange={(e) => setStock(Number(e.target.value))}
             />
+            {stockError && (
+                <p className="errorMsg">{stockError}</p>
+            )}
             <label htmlFor="price">Pris</label>
             <input 
             type="number" 
@@ -105,6 +128,9 @@ const AddPage = () => {
             value={price}
             onChange={(e) => setPrice(Number(e.target.value))}
             />
+            {priceError && (
+                <p className="errorMsg">{priceError}</p>
+            )}
             <button type="submit" className="loginBtn" style={{color: "white", backgroundColor: "blue", padding: "8px 20px", borderRadius: "8px", border: "none", fontSize: "1em", cursor: "pointer"}}>Lägg till produkt</button>
         </form>
     </div>
