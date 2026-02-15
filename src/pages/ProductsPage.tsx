@@ -5,7 +5,7 @@ import type { Product } from "../types/auth.types";
 const Products = () => {
 
   const [products, setProducts] = useState<Product[]> ([]);
-  const [stock, setStock] = useState(0);
+  //const [stockById, setStockById] = useState({});
 
   const getProducts = async () => {
     const token = localStorage.getItem("token");
@@ -30,19 +30,26 @@ const Products = () => {
         throw error;
     }
 }
-const updateStock = async () => {
+const updateStock = async (id: string, updatedStock: number) => {
 
+  const newStock = {
+    stock: updatedStock
+  }
+  console.log("id: " + id + " " + "updatedStock: " + updatedStock + "newStock: " + newStock)
+
+  const token = localStorage.getItem('token');
   try {
-      const res = await fetch("http://localhost:5001/items", {
+      const res = await fetch(`http://localhost:5001/items/${id}`, {
           method: "PUT",
           headers: {
-              "Content-type": "application/json"
-          }
+              "Content-type": "application/json",
+              "Authorization": `Bearer ` + token
+          },
+          body: JSON.stringify(newStock)
       });
       if(res.ok){
           const data = await res.json();
-          console.log(data);
-          setProducts(data);
+          console.log("Uppdaterad" + data);
       }
   } catch (error) {
       throw error;
@@ -64,7 +71,8 @@ useEffect(() => {
               <h3>{product.name}</h3>
               <p>{product.description}</p>
               <p>Artikelnummmer: {product.articleNumber}</p>
-              <p>Lagersaldo: </p> <input type="number" value={product.stock} onChange={(e) => setStock(Number(e.target.value))} /> <button onChange={updateStock}>Uppdatera saldo</button>
+              <p>Lagersaldo: {product.stock}</p> 
+               {/* <input type="number" value={stockById[product._id] || 0} onChange={(e) => setStockById({[product._id] : Number(e.target.value)})} /> <button onClick={() => updateStock(product._id, product.stock)}>Uppdatera saldo</button> */}
               <p>{product.price}kr</p>
             </div>
           </article>
