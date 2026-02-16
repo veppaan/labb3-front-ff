@@ -40,7 +40,7 @@ const AddPage = () => {
         const token = localStorage.getItem('token');
 
         try {
-            const res = await fetch(`http://localhost:5001/items`, {
+            const res = await fetch(`https://labb3-back-ff.onrender.com/items`, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json",

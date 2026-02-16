@@ -11,7 +11,7 @@ const StartPage = () => {
   const getProducts = async () => {
 
     try {
-        const res = await fetch("http://localhost:5001/items", {
+        const res = await fetch("https://labb3-back-ff.onrender.com/items", {
             method: "GET",
             headers: {
                 "Content-type": "application/json"

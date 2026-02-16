@@ -18,7 +18,7 @@ const Products = () => {
     }
 
     try {
-        const res = await fetch("http://localhost:5001/items", {
+        const res = await fetch("https://labb3-back-ff.onrender.com/items", {
             method: "GET",
             headers: {
                 "Content-type": "application/json"
@@ -44,7 +44,7 @@ if(!ask){
   const token = localStorage.getItem('token');
   try {
       
-  const resp = await fetch(`http://localhost:5001/items/${id}`, {
+  const resp = await fetch(`https://labb3-back-ff.onrender.com/items/${id}`, {
       method: "DELETE",
       headers: {
           "content-type": "application/json",

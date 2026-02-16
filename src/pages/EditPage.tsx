@@ -45,7 +45,7 @@ const EditPage = () => {
     }
 
     try {
-        const res = await fetch(`http://localhost:5001/items/${id}`, {
+        const res = await fetch(`https://labb3-back-ff.onrender.com/items/${id}`, {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
@@ -74,7 +74,7 @@ useEffect(() => {
         const token = localStorage.getItem('token');
 
         try {
-            const res = await fetch(`http://localhost:5001/items/${id}`, {
+            const res = await fetch(`https://labb3-back-ff.onrender.com/items/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-type": "application/json",

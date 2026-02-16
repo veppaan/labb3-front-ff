@@ -15,7 +15,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
     //logga in användare
     const login = async (credentials: LoginCredentials) => {
         try {
-            const res = await fetch("http://localhost:5001/admins/login", {
+            const res = await fetch("https://labb3-back-ff.onrender.com/admins/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -48,7 +48,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
         }
 
         try {
-            const res = await fetch("http://localhost:5001/auth", {
+            const res = await fetch("https://labb3-back-ff.onrender.com/auth", {
                 method: "GET",
                 headers: {
                     "Content-type": "application/json",
