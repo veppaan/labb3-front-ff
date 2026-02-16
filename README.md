@@ -21,7 +21,7 @@ Pages innehåller:
 - ProductsPage: Visar alla inlagda produkter med möjlighet att lägga till, redigera eller radera en produkt (skyddad sida)
 - StartPage: Startsida som visar alla produkter (publik sida)
   
-Types innehåller:  Alla interfaces som kan användas i applikationen.  
+Types innehåller: Alla interfaces som kan användas i applikationen.  
 
 Context innehåller data för att kunna användas i olika komponenter:
 - Funktion för att logga in
