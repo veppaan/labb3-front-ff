@@ -1,12 +1,12 @@
 # Labb 3 - Vera Kippel
 
 Detta är min labb 3.  
-För att komma åt produktsidor där produkterna kan ändras och raderas så krävs giltig JWT-token från localStorage.  
 
 API:et som används har CRUD-operationer samt så finns det en route som kollar giltighet på token.   
-React router har använts för routing i applikationen.
   
 I denna labb så har React använts med olika komponenter, pages, context och types.  
+React router har använts för routing i applikationen.  
+För att komma åt produktsidor där produkterna kan hanteras så krävs giltig JWT-token från localStorage.  
 
 Components innehåller:
 - Header (både en tsx-fil och egen css-fil till den): visar alla sidors header, om en användare är inloggad så visas logga ut iställlet för logga in, headern ändras också till ett meddelande för den inloggade
