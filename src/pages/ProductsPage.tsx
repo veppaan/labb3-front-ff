@@ -76,7 +76,6 @@ useEffect(() => {
               <p>{product.description}</p>
               <p>Artikelnummmer: {product.articleNumber}</p>
               <p>Lagersaldo: {product.stock}</p> 
-               {/* <input type="number" value={stockById[product._id] || 0} onChange={(e) => setStockById({[product._id] : Number(e.target.value)})} /> <button onClick={() => updateStock(product._id, product.stock)}>Uppdatera saldo</button> */}
               <p>{product.price}kr</p>
               <button style={{backgroundColor: "blue", border: "1px solid blue", color: "white", marginBottom: "1em", marginTop: "0.5em", marginRight: "0.5em"}} onClick={() => navigate(`/edit/${product._id}`)}>Redigera produkt</button>
               <button style={{backgroundColor: "red", border: "1px solid red", color: "white", marginBottom: "1em", marginTop: "0.5em"}} onClick={() => deleteProduct(product._id, product.name)}>Radera produkt</button>

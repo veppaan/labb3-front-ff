@@ -32,7 +32,7 @@ useEffect(() => {
   return (
     <div>
         <h1>Startsida</h1>
-        <b style={{display: "flex", justifyContent: "center", marginBottom: "1em", color: "pink", fontSize: "1.3em"}}>Välkommen {admin?.firstname}</b>
+        <b style={{display: "flex", justifyContent: "center", marginBottom: "1em", color: "purple", fontSize: "1.3em"}}>Välkommen {admin?.firstname}</b>
         {products.map((product) => (
           <article key={product._id} className="allProducts">
             <div className="oneProduct">
@@ -40,7 +40,6 @@ useEffect(() => {
               <p>{product.description}</p>
               <p>Artikelnummmer: {product.articleNumber}</p>
               <p>Lagersaldo: {product.stock}</p> 
-               {/* <input type="number" value={stockById[product._id] || 0} onChange={(e) => setStockById({[product._id] : Number(e.target.value)})} /> <button onClick={() => updateStock(product._id, product.stock)}>Uppdatera saldo</button> */}
               <p>{product.price}kr</p>
             </div>
           </article>
