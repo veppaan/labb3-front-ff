@@ -10,7 +10,7 @@ För att komma åt produktsidor där produkterna kan hanteras så krävs giltig 
 
 Components innehåller:
 - Header (både en tsx-fil och egen css-fil till den): visar alla sidors header, om en användare är inloggad så visas logga ut iställlet för logga in, headern ändras också till ett meddelande för den inloggade
-- Layout.tsx: visar hur appliaktionens sidor ska vara uppbyggda
+- Layout.tsx: visar hur applikationens sidor ska vara uppbyggda
 - Products.css: css-fil för produkter
 - ProtectedRoute.tsx: fil som används för att navigera användaren till logga in sidan om hen inte är behörig
   
