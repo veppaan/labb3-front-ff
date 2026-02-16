@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
 import type { NewProduct } from "../types/auth.types";
 
 const AddPage = () => {

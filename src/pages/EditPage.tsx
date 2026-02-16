@@ -1,12 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import type { NewProduct, Product } from "../types/auth.types";
+import type { NewProduct } from "../types/auth.types";
 
 const EditPage = () => {
 
     const navigate = useNavigate();
-
-    const [oneProduct, setProduct] = useState<Product[]> ([]);
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [articleNumber, setArticleNumber] = useState(0);
