@@ -45,8 +45,6 @@ const EditPage = () => {
     if(!token){
         return;
     }
-    
-    console.log(token)
 
     try {
         const res = await fetch(`http://localhost:5001/items/${id}`, {
@@ -76,10 +74,7 @@ useEffect(() => {
     const editProduct = async (credentials: NewProduct) => {
       
         const token = localStorage.getItem('token');
-        console.log(token)
 
-        console.log(credentials);
-        console.log(id)
         try {
             const res = await fetch(`http://localhost:5001/items/${id}`, {
                 method: "PUT",
@@ -100,7 +95,6 @@ useEffect(() => {
                 setArticleError(data.errors.articleNumber);
                 setStockError(data.errors.stock);
                 setPriceError(data.errors.price);
-                console.log(data.errors);
             }
         } catch (error) {
             throw new Error;

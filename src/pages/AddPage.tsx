@@ -36,11 +36,9 @@ const AddPage = () => {
     }
 
     const addProduct = async (credentials: NewProduct) => {
-
-        console.log(credentials)
       
         const token = localStorage.getItem('token');
-        console.log(token)
+
         try {
             const res = await fetch(`http://localhost:5001/items`, {
                 method: "POST",
@@ -61,7 +59,6 @@ const AddPage = () => {
                 setArticleError(data.errors.articleNumber);
                 setStockError(data.errors.stock);
                 setPriceError(data.errors.price);
-                console.log(data.errors);
             }
         } catch (error) {
             throw new Error;

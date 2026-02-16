@@ -26,39 +26,11 @@ const Products = () => {
         });
         if(res.ok){
             const data = await res.json();
-            console.log(data);
             setProducts(data);
         }
     } catch (error) {
         throw error;
     }
-}
-
-//Uppdatera produkt
-const updateStock = async (id: string, updatedStock: number) => {
-
-  const newStock = {
-    stock: updatedStock
-  }
-  console.log("id: " + id + " " + "updatedStock: " + updatedStock + "newStock: " + newStock)
-
-  const token = localStorage.getItem('token');
-  try {
-      const res = await fetch(`http://localhost:5001/items/${id}`, {
-          method: "PUT",
-          headers: {
-              "Content-type": "application/json",
-              "Authorization": `Bearer ` + token
-          },
-          body: JSON.stringify(newStock)
-      });
-      if(res.ok){
-          const data = await res.json();
-          console.log("Uppdaterad" + data);
-      }
-  } catch (error) {
-      throw error;
-  }
 }
 
 //Raderar produkt
