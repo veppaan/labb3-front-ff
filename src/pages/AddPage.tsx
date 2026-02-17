@@ -6,18 +6,18 @@ const AddPage = () => {
 
     const navigate = useNavigate();
 
-    const [name, setName] = useState('');
-    const [description, setDescription] = useState('');
-    const [articleNumber, setArticleNumber] = useState(0);
-    const [stock, setStock] = useState(0);
-    const [price, setPrice] = useState(0);
-    const [error, setError] = useState('');
+    const [name, setName] = useState<string>('');
+    const [description, setDescription] = useState<string>('');
+    const [articleNumber, setArticleNumber] = useState<number>(0);
+    const [stock, setStock] = useState<number>(0);
+    const [price, setPrice] = useState<number>(0);
+    const [error, setError] = useState<string | null>('');
 
-    const [nameError, setNameError] = useState('');
-    const [desError, setDesError] = useState('');
-    const [articleError, setArticleError] = useState('');
-    const [stockError, setStockError] = useState('');
-    const [priceError, setPriceError] = useState('');
+    const [nameError, setNameError] = useState<string | null>('');
+    const [desError, setDesError] = useState<string | null>('');
+    const [articleError, setArticleError] = useState<string | null>('');
+    const [stockError, setStockError] = useState<string | null>('');
+    const [priceError, setPriceError] = useState<string | null>('');
     
     
     const handleClick = async (e: React.FormEvent<HTMLFormElement>) => {
