@@ -41,6 +41,14 @@ const router = createBrowserRouter([
                 ) 
             },
             {
+                path: "/oneproduct/:id",
+                element: (
+                    <ProtectedRoute>
+                        <EditPage />
+                    </ProtectedRoute>
+                ) 
+            },
+            {
                 path: "/login",
                 element: <LoginPage />
             }

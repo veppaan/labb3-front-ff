@@ -48,8 +48,7 @@ const EditPage = () => {
         const res = await fetch(`https://labb3-back-ff.onrender.com/items/${id}`, {
             method: "GET",
             headers: {
-                "Content-type": "application/json",
-                "Authorization": `Bearer ` + token
+                "Content-type": "application/json"
             }
         });
         if(res.ok){
