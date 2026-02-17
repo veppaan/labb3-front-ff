@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AddPage from "./pages/AddPage";
 import EditPage from "./pages/EditPage";
+import OneProduct from "./pages/OneProductPage";
 
 const router = createBrowserRouter([
     {
@@ -43,9 +44,7 @@ const router = createBrowserRouter([
             {
                 path: "/oneproduct/:id",
                 element: (
-                    <ProtectedRoute>
-                        <EditPage />
-                    </ProtectedRoute>
+                        <OneProduct />
                 ) 
             },
             {

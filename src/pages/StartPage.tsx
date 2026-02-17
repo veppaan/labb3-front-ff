@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext"
 import type { Product } from "../types/auth.types";
+import { useNavigate } from "react-router-dom";
 
 const StartPage = () => {
 
   const {admin} = useAuth();
   const [products, setProducts] = useState<Product[]> ([]);
+  const navigate = useNavigate();
 
   //Hämta produkter
   const getProducts = async () => {
@@ -41,6 +43,7 @@ useEffect(() => {
               <p>Artikelnummmer: {product.articleNumber}</p>
               <p>Lagersaldo: {product.stock}</p> 
               <p>{product.price}kr</p>
+              <button style={{backgroundColor: "blue", border: "1px solid blue", color: "white", marginBottom: "1em", marginTop: "0.5em", marginRight: "0.5em"}} onClick={() => navigate(`/oneproduct/${product._id}`)}>Se enskild produkt</button>
             </div>
           </article>
         ))}

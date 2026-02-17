@@ -1,27 +1,20 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import type { NewProduct } from "../types/auth.types";
+import "../components/Products.css"
 
 const OneProduct = () => {
 
-    const navigate = useNavigate();
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [articleNumber, setArticleNumber] = useState(0);
     const [stock, setStock] = useState(0);
     const [price, setPrice] = useState(0);
-    const [error, setError] = useState('');
 
     const {id} = useParams();
     
 
-      //Hämta produkter
+      //Hämta produkt
   const getProduct = async () => {
-    const token = localStorage.getItem("token");
-
-    if(!token){
-        return;
-    }
 
     try {
         const res = await fetch(`https://labb3-back-ff.onrender.com/items/${id}`, {

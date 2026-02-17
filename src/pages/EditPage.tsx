@@ -36,7 +36,7 @@ const EditPage = () => {
         }
     }
 
-      //Hämta produkter
+      //Hämta produkt
   const getProduct = async () => {
     const token = localStorage.getItem("token");
 
