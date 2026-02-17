@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import "../components/Products.css"
 import type { Product } from "../types/auth.types";
 import { useNavigate } from "react-router-dom";
+import { BounceLoader } from "react-spinners";
 
 const Products = () => {
   const navigate = useNavigate();
 
   const [products, setProducts] = useState<Product[]> ([]);
-  //const [stockById, setStockById] = useState({});
+  const [loading, setLoading] = useState<boolean>(false);
 
   //Hämta produkter
   const getProducts = async () => {
@@ -18,6 +19,7 @@ const Products = () => {
     }
 
     try {
+        setLoading(true);
         const res = await fetch("https://labb3-back-ff.onrender.com/items", {
             method: "GET",
             headers: {
@@ -30,6 +32,8 @@ const Products = () => {
         }
     } catch (error) {
         throw error;
+    } finally {
+      setLoading(false);
     }
 }
 
@@ -67,9 +71,14 @@ useEffect(() => {
   return (
     <div>
         <h1>Produkter</h1>
-        <button onClick={() => navigate("/add")}>Lägg till produkt</button> <br />
+        {loading == false && <div><button onClick={() => navigate("/add")}>Lägg till produkt</button> <br /> </div>}
         <br />
-        {products.map((product) => (
+        {loading && 
+            <div className="loading" style={{display: "flex", justifyContent: "center", margin: "1em"}}>
+                <BounceLoader />
+            </div>}
+        {loading == false && 
+        products.map((product) => (
           <article key={product._id} className="allProducts">
             <div className="oneProduct">
               <h3>{product.name}</h3>
